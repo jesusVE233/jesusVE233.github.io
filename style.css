@@ -1,0 +1,123 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor {
+    margin-top: 50px;
+}
+
+/* Estilos para las opciones */
+.juego {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.opcion {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    cursor: pointer;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.opcion:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.opcion:active {
+    transform: scale(0.9);
+    transition: transform 0.1s ease;
+}
+
+/* Estilos para los resultados */
+.resultados {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente los resultados */
+    align-items: center; /* Alinea verticalmente los resultados */
+    flex-wrap: wrap; /* Permite que los resultados se envuelvan a la siguiente línea si no caben en una sola línea */
+    margin-bottom: 20px;
+}
+
+.resultado {
+    margin: 0 10px; /* Ajusta el espacio entre los resultados */
+    font-size: 24px;
+}
+
+/* Estilos para las imágenes y los textos */
+.opcion-seleccionada {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.opcion-seleccionada img {
+    margin-bottom: 20px;
+}
+
+/* Estilos para el encabezado */
+header {
+    background-color: #f2f2f2;
+    padding: 20px 0;
+}
+
+header h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Estilos para la versión móvil */
+@media only screen and (max-width: 768px) {
+    .juego {
+        flex-direction: column;
+    }
+    .opcion {
+        width: 80%;
+    }
+}
+
+/* Estilos para el botón */
+#btn-jugar-otra-vez {
+    display: none; /* Inicialmente oculto */
+    margin: 20px auto; /* Centro horizontalmente */
+    padding: 10px 20px; /* Espacio alrededor del texto */
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50; /* Color de fondo verde */
+    color: white; /* Color de texto blanco */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+#btn-jugar-otra-vez.mostrar {
+    display: block; /* Mostrar el botón cuando tiene la clase 'mostrar' */
+}
+
+#btn-jugar-otra-vez:hover {
+    background-color: #45a049; /* Color de fondo más oscuro al pasar el mouse */
+}

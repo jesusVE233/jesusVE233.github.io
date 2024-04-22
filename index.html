@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, Papel o Tijeras</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Piedra, Papel o Tijeras</h1>
+    </header>
+    <div class="contenedor">
+        <div class="juego">
+            <img class="opcion" id="piedra" src="imagenes/piedra.jpg" alt="Piedra">
+            <img class="opcion" id="papel" src="imagenes/papel.jpg" alt="Papel">
+            <img class="opcion" id="tijeras" src="imagenes/tijeras.jpg" alt="Tijeras">
+        </div>
+        <div class="resultados">
+            <table>
+                <tr>
+                    <td id="eleccion-jugador">
+                        <p>Tu elección:</p>
+                        <img src="" alt="" id="jugador-img">
+                        <p id="jugador-texto"></p>
+                    </td>
+                    <td id="resultado"></td>
+                    <td id="eleccion-computadora">
+                        <p>Elección de la computadora:</p>
+                        <img src="" alt="" id="computadora-img">
+                        <p id="computadora-texto"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" id="boton-container">
+                        <button id="btn-jugar-otra-vez" class="oculto">Jugar otra vez</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Jesús Francisco Virrueta Espinoza | 6CPGM num43</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
