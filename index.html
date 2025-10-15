@@ -1,48 +1,146 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piedra, Papel o Tijeras</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Hotel Imperium - ¡Gana una Estancia Imperial!</title>
+    <style type="text/css">
+        /* Estilos básicos que funcionan en clientes de email */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Piedra, Papel o Tijeras</h1>
-    </header>
-    <div class="contenedor">
-        <div class="juego">
-            <img class="opcion" id="piedra" src="imagenes/piedra.jpg" alt="Piedra">
-            <img class="opcion" id="papel" src="imagenes/papel.jpg" alt="Papel">
-            <img class="opcion" id="tijeras" src="imagenes/tijeras.jpg" alt="Tijeras">
-        </div>
-        <div class="resultados">
-            <table>
-                <tr>
-                    <td id="eleccion-jugador">
-                        <p>Tu elección:</p>
-                        <img src="" alt="" id="jugador-img">
-                        <p id="jugador-texto"></p>
-                    </td>
-                    <td id="resultado"></td>
-                    <td id="eleccion-computadora">
-                        <p>Elección de la computadora:</p>
-                        <img src="" alt="" id="computadora-img">
-                        <p id="computadora-texto"></p>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3" id="boton-container">
-                        <button id="btn-jugar-otra-vez" class="oculto">Jugar otra vez</button>
-                    </td>
-                </tr>
-            </table>
-        </div>
+    <!-- Contenedor principal -->
+    <div class="container" style="width: 100%; max-width: 600px; margin: 0 auto; background-color: #ffffff;">
+        
+        <!-- Header -->
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" style="background: linear-gradient(135deg, #1a237e, #283593);">
+            <tr>
+                <td align="center" style="padding: 30px 20px;">
+                    <h1 style="color: #ffffff; font-size: 32px; margin: 0; font-family: Arial, sans-serif;">IMPERIUM HOTEL</h1>
+                    <p style="color: #c5cae9; font-size: 16px; margin: 5px 0 0 0; font-family: Arial, sans-serif;">Experiencia Imperial - Donde el Lujo se Encuentra con la Tradición</p>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Hero Image -->
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="center" style="position: relative;">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Hotel Imperium - Lujo y Elegancia" 
+                         style="width: 100%; max-width: 600px; height: auto; display: block;">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; width: 80%;">
+                        <h2 style="color: #ffffff; font-size: 28px; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); font-family: Arial, sans-serif;">¡GANA UNA ESTANCIA IMPERIAL!</h2>
+                        <p style="color: #ffffff; font-size: 18px; margin: 10px 0 0 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); font-family: Arial, sans-serif;">3 días y 2 noches de lujo total</p>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Contenido Principal -->
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td style="padding: 30px 20px;">
+                    <h2 style="color: #1a237e; font-size: 24px; text-align: center; margin: 0 0 20px 0; font-family: Arial, sans-serif;">Vive la Experiencia Imperial</h2>
+                    
+                    <p style="color: #333333; font-size: 16px; line-height: 1.6; text-align: center; margin-bottom: 25px; font-family: Arial, sans-serif;">
+                        Registrate en nuestro <strong>exclusivo concurso</strong> y gana una estancia de lujo para 2 personas en el Hotel Imperium. ¡Incluye todos los servicios premium!
+                    </p>
+
+                    <!-- Beneficios -->
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin: 30px 0;">
+                        <tr>
+                            <td align="center" style="padding: 10px;">
+                                <div style="font-size: 24px; color: #1a237e; margin-bottom: 10px;">🏨</div>
+                                <p style="color: #666666; font-size: 14px; margin: 0; font-family: Arial, sans-serif;">Suite Imperial</p>
+                            </td>
+                            <td align="center" style="padding: 10px;">
+                                <div style="font-size: 24px; color: #1a237e; margin-bottom: 10px;">🍽️</div>
+                                <p style="color: #666666; font-size: 14px; margin: 0; font-family: Arial, sans-serif;">Gastronomía Gourmet</p>
+                            </td>
+                            <td align="center" style="padding: 10px;">
+                                <div style="font-size: 24px; color: #1a237e; margin-bottom: 10px;">🏊</div>
+                                <p style="color: #666666; font-size: 14px; margin: 0; font-family: Arial, sans-serif;">Spa & Wellness</p>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!-- Botón CTA -->
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin: 30px 0;">
+                        <tr>
+                            <td align="center">
+                                <a href="https://hotelimperium.com/concurso" 
+                                   style="background: linear-gradient(135deg, #1a237e, #283593); color: #ffffff; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-size: 18px; font-weight: bold; display: inline-block; font-family: Arial, sans-serif;">
+                                   ¡QUIERO PARTICIPAR GRATIS!
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!-- Texto adicional -->
+                    <p style="color: #333333; font-size: 14px; line-height: 1.6; text-align: center; margin-bottom: 15px; font-family: Arial, sans-serif;">
+                        <strong>🎁 Lo que incluye el premio:</strong><br>
+                        • 2 noches en Suite Imperial<br>
+                        • Desayuno buffet gourmet para 2<br>
+                        • Acceso completo al Spa<br>
+                        • Cena romántica 5 estrellas<br>
+                        • Valor total: $25,000 MXN
+                    </p>
+
+                    <p style="color: #666666; font-size: 12px; text-align: center; margin: 20px 0 0 0; font-family: Arial, sans-serif;">
+                        ⏰ <strong>Fecha límite:</strong> 15 de Febrero 2024<br>
+                        🎯 <strong>Sorteo:</strong> 28 de Febrero 2024
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Footer -->
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color: #1a237e;">
+            <tr>
+                <td align="center" style="padding: 20px;">
+                    <!-- Redes Sociales -->
+                    <table border="0" cellpadding="0" cellspacing="0" style="margin: 15px 0;">
+                        <tr>
+                            <td style="padding: 0 10px;">
+                                <a href="#" style="color: #ffffff; text-decoration: none; font-family: Arial, sans-serif;">Facebook</a>
+                            </td>
+                            <td style="padding: 0 10px;">
+                                <a href="#" style="color: #ffffff; text-decoration: none; font-family: Arial, sans-serif;">Instagram</a>
+                            </td>
+                            <td style="padding: 0 10px;">
+                                <a href="#" style="color: #ffffff; text-decoration: none; font-family: Arial, sans-serif;">Twitter</a>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!-- Información de contacto -->
+                    <p style="color: #ffffff; font-size: 14px; margin: 10px 0; font-family: Arial, sans-serif;">
+                        Hotel Imperium © 2024 - Todos los derechos reservados
+                    </p>
+                    <p style="color: #c5cae9; font-size: 12px; margin: 5px 0; font-family: Arial, sans-serif;">
+                        Av. del Lujo 123, Zona Premium, Ciudad<br>
+                        Tel: +52 664 123 4567 | info@hotelimperium.com
+                    </p>
+
+                    <!-- Unsubscribe -->
+                    <p style="color: #c5cae9; font-size: 11px; margin: 15px 0 0 0; font-family: Arial, sans-serif;">
+                        <a href="#" style="color: #c5cae9; text-decoration: underline;">Darse de baja</a> de nuestra lista de correos
+                    </p>
+                </td>
+            </tr>
+        </table>
     </div>
-    
-    <footer>
-        <p>Jesús Francisco Virrueta Espinoza | 6CPGM num43</p>
-    </footer>
-    <script src="script.js"></script>
 </body>
 </html>
