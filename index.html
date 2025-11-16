@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jesús Virrueta - Portafolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0ea5e9;
+            --primary-dark: #0284c7;
+            --secondary: #7e22ce;
+            --dark: #0a0a0f;
+            --dark-light: #151521;
+            --darker: #07070c;
+            --text: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --accent: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 50%, var(--dark-light) 100%);
+            background-attachment: fixed;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-80px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(80px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px var(--primary); }
+            50% { box-shadow: 0 0 20px var(--primary), 0 0 30px var(--secondary); }
+            100% { box-shadow: 0 0 5px var(--primary); }
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 5px rgba(14, 165, 233, 0.5); }
+            50% { text-shadow: 0 0 15px rgba(14, 165, 233, 0.8), 0 0 20px rgba(126, 34, 206, 0.6); }
+            100% { text-shadow: 0 0 5px rgba(14, 165, 233, 0.5); }
+        }
+
+        /* Navegación */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Sección Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textGlow 3s infinite;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-secondary);
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            animation: fadeIn 1s ease-out 0.6s both;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(to right, var(--secondary), var(--primary));
+            transition: all 0.3s;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            width: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.4);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
+            z-index: 1;
+        }
+
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            opacity: 0.1;
+            animation: float 10s infinite ease-in-out;
+        }
+
+        .floating-element:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            bottom: 20%;
+            right: 20%;
+            background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            top: 50%;
+            left: 10%;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            animation-delay: 4s;
+        }
+
+        /* Secciones generales */
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .section-title {
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 3px;
+        }
+
+        /* Sobre Mí */
+        .about {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .skill {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.7rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .skill:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(14, 165, 233, 0.3);
+        }
+
+        .about-image {
+            text-align: center;
+            position: relative;
+        }
+
+        .profile-img {
+    width: 100%;
+    max-width: 400px;
+    height: 400px;
+    border-radius: 20px;
+    object-fit: cover;
+    border: 3px solid var(--primary);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    animation: glow 4s infinite;
+    /* Fuerza que sea visible */
+    opacity: 1 !important;
+    background: transparent !important;
+}
+
+        /* Proyectos */
+        .projects {
+            background: rgba(7, 7, 12, 0.7);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .projects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project {
+            margin-bottom: 8rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .project.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .project-info {
+            padding: 2rem 0;
+        }
+
+        .project-info h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .project-info p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .tech-tag:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .project-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: all 0.5s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-img.main {
+            grid-column: span 2;
+            height: 250px;
+        }
+
+        /* Habilidades */
+        .skills-section {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2.5rem;
+            border-radius: 15px;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .skill-list {
+            list-style-type: none;
+        }
+
+        .skill-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        .skill-list li:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(5px);
+        }
+
+        .skill-list i {
+            color: var(--primary);
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
+            width: 25px;
+            text-align: center;
+        }
+
+        /* Contacto */
+        .contact {
+            background: rgba(7, 7, 12, 0.7);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: var(--text-secondary);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s;
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .contact-item i {
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text);
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(14, 165, 233, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .about-content,
+            .project-content {
+                grid-template-columns: 1fr;
+            }
+
+            .project-images {
+                order: -1;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--darker);
+                padding: 1.5rem 0;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                border-top: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+
+            .profile-img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegación -->
+    <header>
+        <nav>
+            <div class="logo">JESÚS VIRRUETA</div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#sobre-mi">Sobre Mí</a>
+                <a href="#proyectos">Proyectos</a>
+                <a href="#habilidades">Habilidades</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sección Hero -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Jesus Francisco Virrueta Espinoza</h1>
+            <p>Técnico en Programación especializado en desarrollo web, diseño y tecnologías emergentes basadas en IA. Creo experiencias digitales únicas y funcionales.</p>
+            <a href="#proyectos" class="btn">Explorar Proyectos</a>
+        </div>
+        <div class="hero-bg"></div>
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+    </section>
+
+    <!-- Sobre Mí -->
+   <section id="sobre-mi" class="about">
+    <div class="section-title">
+        <h2>Sobre Mí</h2>
+    </div>
+    <div class="about-content">
+        <div class="about-text">
+            <h3>Transformando ideas en experiencias digitales</h3>
+            <p>Soy Técnico en Programación y estudiante de Entornos Virtuales y Negocios Digitales con experiencia operando maquinaria industrial y amplio dominio de herramientas digitales.</p>
+            <p>Mi enfoque combina conocimientos técnicos sólidos con un ojo creativo para el diseño, permitiéndome crear soluciones digitales que no solo funcionan perfectamente, sino que también cautivan visualmente.</p>
+            <div class="skills">
+                <div class="skill">Desarrollo Web</div>
+                <div class="skill">Diseño UI/UX</div>
+                <div class="skill">Inteligencia Artificial</div>
+                <div class="skill">Edición Multimedia</div>
+                <div class="skill">Responsive Design</div>
+                <div class="skill">Animaciones CSS/JS</div>
+            </div>
+        </div>
+       <div class="about-image">
+    <!-- REEMPLAZA "mi-foto.jpg" CON EL NOMBRE REAL DE TU FOTO -->
+    <img src="jesus.png" alt="Jesús Virrueta - Desarrollador" class="profile-img">
+</div>
+    </div>
+</section>
+
+    <!-- Proyectos -->
+    <section id="proyectos" class="projects">
+        <div class="projects-container">
+            <div class="section-title">
+                <h2>Mis Proyectos</h2>
+            </div>
+
+            <!-- Proyecto 1 - Operación de Maquinaria Industrial -->
+            <div class="project">
+                <div class="project-content">
+                    <div class="project-info">
+                        <h3>Operación de Maquinaria Industrial</h3>
+                        <p>En mi puesto actual en COPANORO, opero y superviso maquinaria industrial especializada, resolviendo problemas técnicos en tiempo real y manteniendo los estándares de calidad. Esta experiencia me ha enseñado a trabajar bajo presión, coordinar equipos y aplicar soluciones técnicas eficientes.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Resolución de Problemas</span>
+                            <span class="tech-tag">Trabajo en Equipo</span>
+                            <span class="tech-tag">Control de Calidad</span>
+                            <span class="tech-tag">Mantenimiento</span>
+                            <span class="tech-tag">Coordinación</span>
+                        </div>
+                    </div>
+                    <div class="project-images">
+                        <img src="IMG_4546 - frame at 0m9s.jpg" alt="Maquinaria Industrial" class="project-img main">
+                        <img src="IMG_4542 - frame at 0m15s.jpg" alt="Proceso Industrial" class="project-img">
+                        <img src="IMG_4537 - frame at 0m6s.jpg" alt="Control de Calidad" class="project-img">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto 2 - Ellit Fitness -->
+            <div class="project">
+                <div class="project-content">
+                    <div class="project-info">
+                        <h3>Ellit - Plataforma Fitness</h3>
+                        <p>Proyecto escolar en desarrollo que comenzó como aplicación de consola en Java y está escalando hacia una plataforma web completa con futura implementación en Realidad Virtual. La plataforma incluirá seguimiento de ejercicios, rutinas personalizadas y comunidad fitness.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">HTML/CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">Realidad Virtual</span>
+                        </div>
+                    </div>
+                    <div class="project-images">
+                        <img src="e1.jpg" alt="Plataforma Fitness" class="project-img main">
+                        <img src="e2.jpg" alt="App Fitness" class="project-img">
+                        <img src="e3.jpg" alt="VR Fitness" class="project-img">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto 3 - Modelado 3D -->
+            <div class="project">
+                <div class="project-content">
+                    <div class="project-info">
+                        <h3>Modelado 3D y Escenarios Virtuales</h3>
+                        <p>Creación de modelos 3D, texturizado y diseño de escenarios utilizando Blender y Unreal Engine. Desarrollo de entornos virtuales inmersivos con iluminación avanzada y efectos visuales para aplicaciones en diversos campos como entretenimiento, arquitectura y educación.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Blender</span>
+                            <span class="tech-tag">Unreal Engine</span>
+                            <span class="tech-tag">Modelado 3D</span>
+                            <span class="tech-tag">Texturizado</span>
+                            <span class="tech-tag">Iluminación</span>
+                        </div>
+                    </div>
+                    <div class="project-images">
+                        <img src="a1.png" alt="Modelado 3D" class="project-img main">
+                        <img src="a2.png" alt="Escenario Virtual" class="project-img">
+                        <img src="a3.png" alt="Render 3D" class="project-img">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto 4 - Desarrollo Web -->
+            <div class="project">
+                <div class="project-content">
+                    <div class="project-info">
+                        <h3>Desarrollo Web y Aplicaciones</h3>
+                        <p>Desarrollo de sitios web responsivos y aplicaciones web utilizando las últimas tecnologías. Especializado en crear experiencias de usuario fluidas e interfaces atractivas que combinan funcionalidad con diseño innovador.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML/CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">WordPress</span>
+                            <span class="tech-tag">Figma</span>
+                        </div>
+                    </div>
+                    <div class="project-images">
+                        <img src="d1.png" alt="Desarrollo Web" class="project-img main">
+                        <img src="d2.png" alt="Aplicaciones Web" class="project-img">
+                        <img src="d3.png" alt="UI/UX Design" class="project-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Habilidades -->
+    <section id="habilidades" class="skills-section">
+        <div class="section-title">
+            <h2>Habilidades Técnicas</h2>
+        </div>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Desarrollo Web</h3>
+                <ul class="skill-list">
+                    <li><i class="fab fa-html5"></i> HTML5</li>
+                    <li><i class="fab fa-css3-alt"></i> CSS3 & SASS</li>
+                    <li><i class="fab fa-js-square"></i> JavaScript ES6+</li>
+                    <li><i class="fab fa-php"></i> PHP</li>
+                    <li><i class="fas fa-database"></i> MySQL</li>
+                    <li><i class="fab fa-wordpress"></i> WordPress</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Diseño & Multimedia</h3>
+                <ul class="skill-list">
+                    <li><i class="fab fa-figma"></i> Figma</li>
+                    <li><i class="fas fa-paint-brush"></i> Adobe Photoshop</li>
+                    <li><i class="fas fa-vector-square"></i> Adobe Illustrator</li>
+                    <li><i class="fas fa-film"></i> DaVinci Resolve</li>
+                    <li><i class="fas fa-cube"></i> Blender</li>
+                    <li><i class="fas fa-video"></i> OBS Studio</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Tecnologías Emergentes</h3>
+                <ul class="skill-list">
+                    <li><i class="fab fa-git-alt"></i> Git & GitHub</li>
+                    <li><i class="fas fa-server"></i> XAMPP & Hosting</li>
+                    <li><i class="fas fa-robot"></i> Inteligencia Artificial</li>
+                    <li><i class="fas fa-brain"></i> ChatGPT & Gemini</li>
+                    <li><i class="fas fa-gamepad"></i> Unreal Engine</li>
+                    <li><i class="fas fa-microphone"></i> Audacity</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contact">
+        <div class="contact-container">
+            <div class="section-title">
+                <h2>Contacto</h2>
+            </div>
+            <p>¿Tienes un proyecto en mente? ¡Hablemos y hagámoslo realidad!</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>(+52) 664 808 8807</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>jesusvirtueta233@gmail.com</span>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/jesusVE233"><i class="fab fa-github"></i></a>
+                <a href="https://www.facebook.com/jesusfrancisco.virruetaespinoza.961/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/jesusfr71108406"><i class="fab fa-x"></i></a>
+                <a href="https://www.instagram.com/jesusfv233/"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Jesús Virrueta. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Menú móvil
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        // Animación al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos de proyectos
+        document.querySelectorAll('.project').forEach(project => {
+            observer.observe(project);
+        });
+
+        // Efecto de escritura en el hero
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroTitle = document.querySelector('.hero h1');
+            const text = heroTitle.innerHTML;
+            heroTitle.innerHTML = '';
+            
+            let i = 0;
+            function typeWriter() {
+                if (i < text.length) {
+                    heroTitle.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+            
+            // Iniciar efecto de escritura después de un breve retraso
+            setTimeout(typeWriter, 500);
+        });
+    </script>
+</body>
+</html>
